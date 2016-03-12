@@ -1,11 +1,12 @@
-# Schema Form Builder
+# Json Schema Form Builder
 
-A simple form builder that generates a schema and form based on the [angular schema form](http://schemaform.io) package.
-
+Quickly generate your your schema form using this GUI builder.
 
 # Roadmap
 
 - Complete support of all elements based on schema-form
-- Generate vanilla/bootstrap/material forms
+- Provide source definition for different platforms
+- 100% test coverage
 
-Built By: [ralphowino.com](http://ralphowino.com)
+# Simply need a html form?
+To generate vanilla/bootstrap/material forms checkout ralphowino.github.com/form-builder

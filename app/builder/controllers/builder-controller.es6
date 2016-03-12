@@ -5,77 +5,71 @@
       constructor(Converter, growl, locker, $scope, $uibModal) {
         let vm = this;
 
-        vm.forms = locker.get('schema_forms', {}/* {
-         'sample_form': {
-         name: 'Sample Form',
-         type: 'schema-form',
-         fields: [
-         {
-         type: 'text',
-         key: 'first_name',
-         title: 'First name',
-         open: false
-         },
-         {
-         type: 'text',
-         key: 'last_name',
-         title: 'Last name',
-         open: false
-         },
-         {
-         type: 'email',
-         key: 'email',
-         title: 'Email',
-         open: false
-         },
-         {
-         type: 'date',
-         key: 'dob',
-         title: 'Date of Birth',
-         open: false
-         },
-         {
-         type: 'dropdown',
-         key: 'marital-status',
-         title: 'Marital Status',
-         open: false
-         },
-         {
-         type: 'date-time',
-         key: 'check-in',
-         title: 'Check In',
-         open: false
-         },
-         {
-         type: 'date-time',
-         key: 'check-out',
-         title: 'Check Out',
-         open: false
-         },
-         {
-         type: 'textarea',
-         key: 'bio',
-         title: 'Biography',
-         open: false
-         }
-         ]
-         }
-         }*/);
-        console.log(vm.forms);
+        vm.forms = locker.get('schema_forms', {
+          'sample_form': {
+            name: 'Sample Form',
+            type: 'schema-form',
+            fields: [
+              {
+                type: 'text',
+                key: 'first_name',
+                title: 'First name',
+                open: false
+              },
+              {
+                type: 'text',
+                key: 'last_name',
+                title: 'Last name',
+                open: false
+              },
+              {
+                type: 'email',
+                key: 'email',
+                title: 'Email',
+                open: false,
+                showAdvance: true,
+                fieldAddonRight:'<i class="glyphicon glyphicon-envelope"></i>'
+              },
+              {
+                type: 'date',
+                key: 'dob',
+                title: 'Date of Birth',
+                open: false
+              },
+              {
+                type: 'dropdown',
+                key: 'marital-status',
+                title: 'Marital Status',
+                open: false
+              },
+              {
+                type: 'date-time',
+                key: 'check-in',
+                title: 'Check In',
+                open: false
+              },
+              {
+                type: 'date-time',
+                key: 'check-out',
+                title: 'Check Out',
+                open: false
+              },
+              {
+                type: 'textarea',
+                key: 'bio',
+                title: 'Biography',
+                open: false
+              }
+            ]
+          }
+        });
+
         vm.schema = {
           type: 'object',
           title: 'Comment',
           properties: {
             name: {
               type: 'string'
-            },
-            type: {
-              type: 'string',
-              title: 'Form Output',
-              enum: [
-                'schema-form',
-                'bootstrap',
-              ]
             },
             fields: {
               type: 'array',
@@ -116,7 +110,7 @@
                   key: {
                     title: 'Key',
                     type: 'string',
-                    //description: 'Unique identifier'
+                    description: 'Unique identifier'
                   },
                   title: {
                     condition: 'model.notitle',
@@ -222,7 +216,6 @@
                   }
                 },
                 required: [
-                  'type',
                   'key'
                 ]
               }
@@ -243,14 +236,7 @@
                 notitle: true,
                 fieldHtmlClass: 'field-name',
                 labelHtmlClass: 'field-name-label'
-              },
-              {
-                key: 'type',
-                htmlClass: 'col-sm-6',
-                //notitle: true,
-                fieldHtmlClass: 'output-type',
-                labelHtmlClass: 'output-type-label'
-              },
+              }
             ]
           },
           {

@@ -22,5 +22,8 @@
         "jquery": "*"
       }
     }
+  },
+  "resolutions": {
+    "angular": "~1.4.*"
   }
 }
