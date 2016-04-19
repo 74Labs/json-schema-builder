@@ -5,6 +5,7 @@
       constructor(Converter, growl, locker, $scope, $uibModal) {
         let vm = this;
 
+        // all available / saved forms
         vm.forms = locker.get('schema_forms', {
           'sample_form': {
             name: 'Sample Form',
@@ -64,6 +65,7 @@
           }
         });
 
+        // describing properties of each form field
         vm.schema = {
           type: 'object',
           title: 'Comment',
@@ -223,7 +225,11 @@
           },
           required: ['name']
         };
+        
+        // holding properties of each form field
         vm.model = {};
+        
+        // describing the layout of the builder fields
         vm.form = [
           {
             type: 'section',
@@ -436,6 +442,8 @@
             ]
           }
         ];
+        
+        // the resulting schema and form definitions
         vm.output = {schema: {}, form: []};
 
         vm.saveForm = (form) => {
