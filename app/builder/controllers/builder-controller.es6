@@ -2,12 +2,12 @@
     'use strict';
 
     class BuilderCtrl {
-      constructor(Converter, growl, locker, $scope, $uibModal) {
+      constructor(Converter, $scope, $uibModal) {
         let vm = this;
 
-        // all available / saved forms
-        vm.forms = locker.get('schema_forms', {
-          'sample_form': {
+        // sample form
+        vm.sampleForm = 
+          {
             name: 'Sample Form',
             type: 'schema-form',
             fields: [
@@ -62,8 +62,7 @@
                 open: false
               }
             ]
-          }
-        });
+          };
 
         // describing properties of each form field
         vm.schema = {
@@ -270,11 +269,6 @@
                     },
                     style: 'btn-success btn-sm pull-right',
                     title: 'Generate Schema'
-                  },
-                  {
-                    type: 'submit',
-                    style: 'btn-success btn-sm pull-right margin-right-20',
-                    title: 'Save'
                   }
                 ]
               }
@@ -446,71 +440,22 @@
         // the resulting schema and form definitions
         vm.output = {schema: {}, form: []};
 
-        vm.saveForm = (form) => {
-          $scope.$broadcast('schemaFormValidate');
-          if (form.$valid) {
-            persistForm();
-          }
-        };
         vm.newForm = () => {
-          persistForm();
           vm.model = {
             fields: []
           };
           console.log(vm.model);
         };
-        vm.openForm = () => {
-          var modalInstance = $uibModal.open({
-            templateUrl: 'builder/views/open.tpl.html',
-            controller: function ($uibModalInstance, forms) {
-              let vm = this;
-              vm.forms = forms;
-              vm.open = function (form) {
-                $uibModalInstance.close(form);
-              };
 
-              vm.delete = function (index, form) {
-                if (confirm('About to delete ' + form.name)) {
-                  vm.forms.slice(vm.forms, index, 1);
-                  locker.put('schema_forms', vm.forms);
-                }
-              };
-
-              vm.cancel = function () {
-                $uibModalInstance.dismiss();
-              }
-            },
-            controllerAs: 'modal',
-            resolve: {
-              forms: function () {
-                return vm.forms;
-              }
-            }
-          });
-
-          modalInstance.result.then(function (form) {
-            persistForm();
-            vm.model = form;
-            generateOutput(vm.model);
-          });
-        };
 
         if (!vm.model.name) {
-          vm.openForm();
+          vm.model = vm.sampleForm;
         }
 
         function generateOutput(update) {
           vm.output = Converter.generateFields(update);
           console.log(vm.output);
           vm.display = angular.copy(vm.output);
-        }
-
-        function persistForm() {
-          if (vm.model.name && vm.model.name.length > 0) {
-            vm.forms[_.snakeCase(vm.model.name)] = vm.model;
-            locker.put('schema_forms', vm.forms);
-            growl.success('Form ' + vm.model.name + ' Saved');
-          }
         }
 
 

@@ -1,22 +1,13 @@
 
 <div class="body-section">
-    <div class="header">
-        <h4>
-            <img src="images/logo.png" alt="">
-            Schema Form <strong>Builder</strong> <span class="grey">/ {{ builder.model.name || 'Untitled Form'}}</span>
-            <a class="btn btn-sm btn-primary pull-right" ng-click="builder.newForm()">New Form</a>
-            <a class="btn btn-sm btn-warning pull-right margin-right-20" ng-click="builder.openForm()">My previous Forms</a>
-        </h4>
-    </div>
     <div class="container">
-        <!--<uib-alert type="default">Build your own form</uib-alert>-->
-
         <div class="row">
             <div class="col-sm-6 builder">
-                <form name="builderForm" ng-submit="builder.saveForm(builderForm)">
+                <form name="builderForm">
                     <div sf-schema="builder.schema" sf-form="builder.form" sf-model="builder.model"
                          sf-options="{ formDefaults: { ngModelOptions: { updateOn: 'blur' } }}"></div>
                 </form>
+                <a class="btn btn-sm btn-primary pull-right" ng-click="builder.newForm()">New Form</a>
             </div>
             <div class="col-sm-6 preview">
                 <h4>preview</h4>
