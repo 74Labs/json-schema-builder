@@ -2,7 +2,7 @@
     'use strict';
 
     class BuilderCtrl {
-      constructor(Converter, $scope, $uibModal) {
+      constructor(Converter, $scope) {
         let vm = this;
 
         // sample form

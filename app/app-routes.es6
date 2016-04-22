@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('schemaFormBuilder')
+    .module('schemaFormBuilderApp')
     .config(config);
 
   function config($urlRouterProvider) {
