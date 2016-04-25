@@ -9,7 +9,7 @@
    *
    */
   angular
-    .module('builder')
+    .module('schemaFormBuilder')
     .factory('Converter', Converter);
 
   function Converter() {

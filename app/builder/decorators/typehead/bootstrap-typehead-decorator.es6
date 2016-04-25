@@ -7,7 +7,7 @@
    *
    */
   angular
-    .module('builder').config(bootstrapTypeHeadDecorator);
+    .module('schemaFormBuilder').config(bootstrapTypeHeadDecorator);
 
   function bootstrapTypeHeadDecorator(schemaFormProvider, schemaFormDecoratorsProvider, sfPathProvider) {
 

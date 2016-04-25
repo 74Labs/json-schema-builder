@@ -2,7 +2,7 @@
     'use strict';    
     
     
-  angular.module('builder').directive('sfbSchema',['Converter', function(Converter){
+  angular.module('schemaFormBuilder').directive('sfbSchema',['Converter', function(Converter){
     return {
       restrict: 'A',
       scope: {
@@ -11,7 +11,7 @@
         model: '=sfbModel'
       },
       //template: '<h1>Test</h1>'
-      templateUrl: 'builder/directives/builder.tpl.html',
+      templateUrl: 'builder/builder.tpl.html',
       link: function (scope, element, attrs) {
 
     var vm = scope;

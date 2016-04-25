@@ -7,7 +7,7 @@
    *
    */
   angular
-    .module('builder').config(bootstrapAccordionArrayDecorator);
+    .module('schemaFormBuilder').config(bootstrapAccordionArrayDecorator);
 
   function bootstrapAccordionArrayDecorator(schemaFormProvider,  schemaFormDecoratorsProvider, sfPathProvider) {
 

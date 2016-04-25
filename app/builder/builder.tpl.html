@@ -1,0 +1,19 @@
+
+<div class="body-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 schemaFormBuilder">
+                <form name="builderForm">
+                    <div sf-schema="schema" sf-form="form" sf-model="model"
+                         sf-options="{ formDefaults: { ngModelOptions: { updateOn: 'blur' } }}"></div>
+                </form>
+                <a class="btn btn-sm btn-primary pull-right" ng-click="builder.newForm()">New Form</a>
+            </div>
+            <div class="col-sm-6 preview">
+                <h4>preview</h4>
+                <div sf-schema="display.schema" sf-form="display.form"
+                     sf-model="display.model"></div>
+            </div>
+        </div>
+    </div>
+</div>
