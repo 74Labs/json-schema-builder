@@ -10,7 +10,6 @@
     .module('schemaFormBuilder', [
       'schemaForm',
       'ui.bootstrap',
-      'ui.router',
       'ui.sortable'
     ]);
 

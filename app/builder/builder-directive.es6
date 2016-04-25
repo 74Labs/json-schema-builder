@@ -1,27 +1,24 @@
 (function () {
-    'use strict';    
-    
+  'use strict';  
     
   angular.module('schemaFormBuilder').directive('sfbSchema',['Converter', function(Converter){
     return {
       restrict: 'A',
       scope: {
-        schema: '=sfbSchema',
-        form: '=sfbForm',
-        model: '=sfbModel'
+        sfbSchema: '=sfbSchema',
+        sfbForm: '=sfbForm',
+        builderModel: '=sfbModel'
       },
-      //template: '<h1>Test</h1>'
       templateUrl: 'builder/builder.tpl.html',
       link: function (scope, element, attrs) {
 
     var vm = scope;
 
     // sample form
-    vm.sampleForm = scope.model;
-    window.console.log(JSON.stringify(vm.sampleForm));
+    scope.sampleForm = scope.builderModel;
 
     // describing properties of each form field
-    vm.schema = {
+    scope.builderSchema = {
       type: 'object',
       title: 'Comment',
       properties: {
@@ -159,21 +156,10 @@
     };
 
     // holding properties of each form field
-    vm.model = {};
+    scope.model = {};
 
     // describing the layout of the builder fields
-    vm.form = [{
-      type: 'section',
-      htmlClass: 'row main-info',
-      items: [{
-        key: 'name',
-        htmlClass: 'col-sm-6',
-        placeholder: 'name of the form',
-        notitle: true,
-        fieldHtmlClass: 'field-name',
-        labelHtmlClass: 'field-name-label'
-      }]
-    }, {
+    scope.builderForm = [{
       type: 'section',
       htmlClass: 'my-field row',
       items: [{
@@ -182,17 +168,6 @@
         items: [{
           type: 'help',
           helpvalue: '<h4>My Fields:</h4>'
-        }]
-      }, {
-        type: 'section',
-        htmlClass: 'col-sm-6',
-        items: [{
-          type: 'button',
-          onClick: function onClick() {
-            vm.instructionsVisible = true;
-          },
-          style: 'btn-success btn-sm pull-right',
-          title: 'Generate Schema'
         }]
       }]
     }, {
@@ -319,27 +294,20 @@
     }];
 
     // the resulting schema and form definitions
-    vm.output = { schema: {}, form: [] };
-
-    vm.newForm = function () {
-      vm.model = {
-        fields: []
-      };
-      console.log(vm.model);
-    };
-
-    if (!vm.model.name) {
-      vm.model = vm.sampleForm;
-    }
+    scope.output = { schema: {}, form: [] };
 
     function generateOutput(update) {
-      vm.output = Converter.generateFields(update);
-      console.log(vm.output);
-      vm.display = angular.copy(vm.output);
+      scope.output = Converter.generateFields(update);
+      //console.log(JSON.stringify(scope.output));
+      scope.sfbSchema = angular.copy(scope.output.schema);
+      console.log("sfbSchema: " + JSON.stringify(scope.sfbSchema));
+      scope.sfbForm = angular.copy(scope.output.form);
+      console.log("sfbForm: " + JSON.stringify(scope.sfbForm));
+      window.console.log("generate output");
     }
 
     scope.$watch(function () {
-      return vm.model;
+      return scope.builderModel;  
     }, function (update) {
       generateOutput(update);
     }, true);

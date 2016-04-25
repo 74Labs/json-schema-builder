@@ -11,13 +11,20 @@ angular.module('schemaFormBuilderApp').controller('FormBuilderController',functi
 
 
   $scope.$watch(function () {
-    return $scope.form;
+    return $scope.schema;
   }, function (update) {
-    window.console.log(update);
+    window.console.log("schema udpated");
+    //window.console.log("Schema Update: " + JSON.stringify(update));
+    //window.console.log("Form Update: " + JSON.stringify($scope.form));
   }, true);
+  
+  $scope.newForm = function () {
+    $scope.model = {
+        fields: []
+      };
+  }
 
   $scope.model = {
-            name: 'Sample Form',
             type: 'schema-form',
             fields: [
               {
