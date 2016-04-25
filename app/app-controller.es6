@@ -10,6 +10,12 @@ angular.module('schemaFormBuilderApp').controller('FormBuilderController',functi
   $scope.form = [];
 
 
+  $scope.$watch(function () {
+    return $scope.form;
+  }, function (update) {
+    window.console.log(update);
+  }, true);
+
   $scope.model = {
             name: 'Sample Form',
             type: 'schema-form',
