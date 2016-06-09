@@ -21,6 +21,7 @@
         'condition',
         'onChange',
         'notitle',
+        'showAdvanced',
         'validationMessage',
         'onChange',
         'ngModelOptions',
