@@ -7,7 +7,7 @@
    *
    */
   angular
-    .module('builder').config(bootstrapSimpleArrayDecorator);
+    .module('schemaFormBuilder').config(bootstrapSimpleArrayDecorator);
 
   function bootstrapSimpleArrayDecorator(schemaFormProvider, schemaFormDecoratorsProvider, sfPathProvider) {
     schemaFormDecoratorsProvider.addMapping(

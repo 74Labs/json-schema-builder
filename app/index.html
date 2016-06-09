@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en' data-ng-app='schemaFormBuilder'>
+<html lang='en' data-ng-app='schemaFormBuilderApp'>
   <head>
     <title>schema form builder</title>
     <meta name='viewport' content='width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes'>
@@ -13,11 +13,12 @@
     <!-- endinject -->
   </head>
   <body>
-
-  <div data-ui-view>
-
+  
+  <div ng-controller="FormBuilderController">
+    <a class="btn btn-sm btn-primary pull-right" ng-click="newForm()">New Form</a>
+    <div sfb-schema="schema" sfb-form="form" sfb-model="model"></form>
+    </div>
   </div>
-  <div growl></div>
 
     <!-- bower:js -->
     <!-- endbower -->

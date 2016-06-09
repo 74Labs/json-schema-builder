@@ -2,13 +2,13 @@
   'use strict';
 
   /* @ngdoc object
-   * @name schemaFormBuilder
+   * @name schemaFormBuilderApp
    * @description
    *
    */
   angular
-    .module('schemaFormBuilder', [
-      'builder',
+    .module('schemaFormBuilderApp', [
+      'schemaFormBuilder',
       'ui.bootstrap'
     ]);
 }());

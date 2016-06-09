@@ -9,7 +9,7 @@
    *
    */
   angular
-    .module('builder')
+    .module('schemaFormBuilder')
     .factory('Converter', Converter);
 
   function Converter() {
@@ -57,7 +57,7 @@
       let index = _.findKey(output.form, 'key', key);
       output.form[index][attr] = value;
       return output;
-    }
+    };
 
     ConverterBase.generateTextField = (field, output) => {
       output.schema.properties[field.key]['type'] = 'string';

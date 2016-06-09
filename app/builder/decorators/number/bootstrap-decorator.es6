@@ -7,7 +7,7 @@
    *
    */
   angular
-    .module('builder').config(bootstrapDecorator);
+    .module('schemaFormBuilder').config(bootstrapDecorator);
 
   function bootstrapDecorator(schemaFormDecoratorsProvider) {
     schemaFormDecoratorsProvider.addMapping(
