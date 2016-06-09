@@ -2,6 +2,12 @@
 
 A simple form builder that generates a schema and form based on the [angular schema form](http://schemaform.io) package.
 
+<<<<<<< HEAD
+=======
+(branch for directive development)
+
+Quickly generate your your schema form using this GUI builder.
+>>>>>>> refs/remotes/origin/directive
 
 # Roadmap
 
@@ -11,6 +17,13 @@ A simple form builder that generates a schema and form based on the [angular sch
 - Provide source definition for different platforms
 - 100% test coverage
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+# Demo
+There is a live demo at http://ralphowino.github.io/schema-form-builder
+=======
+>>>>>>> refs/remotes/origin/directive
 
 
 #Basic Usage
@@ -43,6 +56,10 @@ Then load them into the Schema Form Builder using the `sfbSchema` and `sfbForm` 
 </div>
 ```
 
+<<<<<<< HEAD
+=======
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/directive
 
 # Simply need a html form?
 To generate vanilla/bootstrap/material forms checkout ralphowino.github.com/form-builder
