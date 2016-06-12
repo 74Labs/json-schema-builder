@@ -4,7 +4,7 @@
 describe('Converter', () => {
   let factory;
 
-  beforeEach(module('builder'));
+  beforeEach(module('schemaFormBuilder'));
 
   beforeEach(inject((Converter) => {
     factory = Converter;
